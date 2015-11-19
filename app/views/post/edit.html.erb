@@ -1,0 +1,26 @@
+<% provide(:title, "Edit Post") %>
+<h1>Edit Post</h1>
+
+<%= form_for @post, url: {action: "update"} do |f| %>
+	<div style="padding-bottom: 10px;">
+      <p><%= f.label :title %></p>
+      <%= f.text_field :title, class: 'form-control' %>
+  	</div>
+
+  	<div style="padding-bottom: 10px;">
+      <p><%= f.label :description %></p>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+
+   	<div style="padding-bottom: 10px;">
+      <p><%= f.label :content %></p>
+      <%= f.text_area :content, size: "60x12" %>
+    </div>
+
+    <div style="padding-bottom: 10px;">
+      <%= select(:post, :category_id, @options) %>
+    </div>
+
+      <p><%= f.submit "Save changes", class: "btn btn-primary" %></p>
+
+<% end %>

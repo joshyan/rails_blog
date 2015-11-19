@@ -1,0 +1,25 @@
+<h1>Post List</h1>
+<table border=1 width="50%">
+	<tr>
+		<td>ID</td>
+		<td>Title</td>
+		<td>Description</td>
+		<td>Action</td>
+	</tr>
+	<% if @posts
+		@posts.each do |post| %>
+		<tr>
+			<td width="10%"><%= link_to "Id: #{post.id}", controller: "post", action: "show", id: post.id %></td>
+			<td width="20%"><%= post.title%></td>
+			<td width="50%"><%= post.description %></td>
+			<td width="20%">
+			<%= link_to "Edit", controller: "post", action: "edit", id: post.id %>
+			<%= link_to "Delete", controller: "post", action: "destroy", id: post.id %>
+			</td>
+		</tr>
+	<% end end %>
+</table>
+
+<br><br><br>
+
+<%= link_to 'New Post', post_new_path %>

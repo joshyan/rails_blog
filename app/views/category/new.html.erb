@@ -1,0 +1,16 @@
+<h1>New Category</h1>
+
+<%= form_for @category, url: {action: "create"}, html: {class: "category_form"} do |f| %>
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :name %></p>
+	  <%= f.text_field :name %>
+	</div>
+
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :description %></p>
+	  <%= f.text_area :description, size: "60x12" %>
+	</div>
+
+	  <p><%= f.submit "Create" %></p>
+
+<% end %>
