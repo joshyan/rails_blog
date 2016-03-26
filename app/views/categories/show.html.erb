@@ -1,0 +1,18 @@
+<h1>Posts in <%= @category.name %></h1>
+<table style="width: 100%">
+	<tr>
+		<td><b>Title</b></td>
+		<td><b>Content</b></td>
+		<td></td>
+	</tr>
+	<% @posts.each do |p| %>
+	<tr>
+		<td><%= p.title %></td>
+		<td><%= p.content %></td>
+		<td><%= link_to "Show", controller: "posts", action: "show", id: p.id %> 
+		<%= link_to "Edit", controller: "posts", action: "edit", id: p.id %>
+		<%= link_to "Destroy", controller: "posts", action: "destroy", id: p.id %>
+		</td>
+	</tr>
+	<% end %>
+</table>

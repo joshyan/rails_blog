@@ -1,0 +1,38 @@
+<h1>New Post</h1>
+
+<%= form_for :post, :url => { :action => "create"}, html: {class: "post_form"} do |f| %>
+	
+	<div style="padding-bottom: 10px;">
+	  <p>Category</p>
+	
+		<%= f.select(:category_id) do %>
+		  <% @categories.each do |c| %>
+		    <%= content_tag(:option, c.name, value: c.id) %>
+		  <% end %>
+		<% end %>
+	</div>
+
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :title %></p>
+	  <%= f.text_field :title %>
+	</div>
+
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :description %></p>
+	  <%= f.text_area :description, size: "30x4" %>
+	</div>
+
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :content %></p>
+	  <%= f.text_area :content, size: "60x12" %>
+	</div>
+	  
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :published %></p>
+	  <%= f.check_box :published %>
+	</div>
+
+
+	  <p><%= f.submit "Create Post" %></p>
+
+<% end %>

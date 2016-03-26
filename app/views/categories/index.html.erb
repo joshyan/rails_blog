@@ -1,0 +1,23 @@
+<h1>List Categories</h1>
+<table width="50%">
+	<tr>
+		<td>Name</td>
+		<td></td>
+	</tr>
+	<% @categories.each do |category| %>
+		<tr>
+			<td width="40%"><%= category.name%> (<%= category.posts.count %>)</td>
+			<td>
+			<%= link_to "Show", controller: "categories", action: "show", id: category.id %>
+			<%= link_to "Edit", controller: "categories", action: "edit", id: category.id %>
+			<%= link_to "Delete", controller: "categories", action: "destroy", id: category.id %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<br><br><br>
+
+<%= link_to 'New Category', categories_new_path %>
+
+<%= link_to 'New Post', posts_new_path %>

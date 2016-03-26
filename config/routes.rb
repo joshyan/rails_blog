@@ -2,29 +2,30 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   #post routers
-  get "post", to: "post#index"
-  get "post/:id/show", to: "post#show"
-  get "post/new"
-  post "post/create", to: "post#create"
-  get "post/:id/edit", to: "post#edit"
-  patch "post/:id/update", to: "post#update"
-  get "post/:id/destroy", to: "post#destroy"
+  get "posts", :to => "posts#index", :as => "posts_index"
+  get "posts/show/:id", to: "posts#show"
+  get "posts/new"
+  post "posts/create", to: "posts#create"
+  get "posts/edit/:id", to: "posts#edit"
+  post "posts/update/:id", to: "posts#update"
+  patch "posts/update/:id", to: "posts#update"
+  get "posts/destroy/:id", to: "posts#destroy"
   #restful
-  patch "post/:id", to: "post#update"
-  delete "post/:id", to: "post#destroy"
+  patch "posts/:id", to: "posts#update"
+  delete "posts/:id", to: "posts#destroy"
 
 
   #category routers
-  get "category", to: "category#index"
-  get "category/:id/show", to: "category#show"
-  get "category/new"
-  post "category/create", to: "category#create"
-  get "category/:id/edit", to: "category#edit"
-  patch "category/:id/update", to: "category#update"
-  get "category/:id/destroy", to: "category#destroy"
+  get "categories", to: "categories#index", :as => "categories_index"
+  get "categories/show/:id", to: "categories#show"
+  get "categories/new"
+  post "categories/create", to: "categories#create"
+  get "categories/edit/:id", to: "categories#edit"
+  patch "categories/update/:id", to: "categories#update"
+  get "categories/destroy/:id", to: "categories#destroy"
   #restful
-  patch "category/:id", to: "category#update"
-  delete "category/:id", to: "category#destroy"
+  patch "categories/:id", to: "categories#update"
+  delete "categories/:id", to: "categories#destroy"
 
 
 
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'categories#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
